@@ -1,9 +1,9 @@
 import Header from "@/app/components/Header";
 import { staatliches, chivo_mono, alumni_sans } from "@/app/ui/fonts";
 import { Post } from "@/app/types/Post";
-import CardPicture from "@/app/components/CardPicture";
 import DateCard from "@/app/components/DateCard";
 import SanitizedHtml from "@/app/components/SanitizedHtml";
+import Image from "next/image";
 
 interface PostPageProps {
   params: {
@@ -34,10 +34,14 @@ export default async function PostPage({ params }: PostPageProps) {
         <div className="flex justify-center">
           <DateCard date={post.date} />
         </div>
-        <CardPicture
-          src={post._embedded["wp:featuredmedia"]["0"].source_url}
-          alt={post.title.rendered}
-        ></CardPicture>
+        <div className="w-full aspect-[16/9] relative overflow-hidden">
+          <Image
+            src={post._embedded["wp:featuredmedia"]["0"].source_url}
+            alt={post.title.rendered}
+            fill
+            className="object-cover"
+          />
+        </div>
         <div className={`${chivo_mono.className} mt-4`}>
           <SanitizedHtml html={post.content.rendered} />
         </div>

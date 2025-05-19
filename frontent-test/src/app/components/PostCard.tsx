@@ -1,5 +1,4 @@
 import CardTitle from "./CardTitle";
-import CardPicture from "./CardPicture";
 import CardExcerpt from "./CardExcerpt";
 import CardFooter from "./CardFooter";
 import { Post } from "../types/Post";
