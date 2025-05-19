@@ -1,4 +1,3 @@
-import PostList from "./components/PostList";
 import PostGrid from "./components/PostGrid";
 import Header from "./components/Header";
 
