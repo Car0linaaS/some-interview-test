@@ -1,15 +1,9 @@
 import PostGrid from "./components/PostGrid";
 import Header from "./components/Header";
-
-async function fetchPosts() {
-  const apiResponse = await fetch(
-    "https://bergvik.se/wp-json/wp/v2/posts?_embed"
-  );
-  return await apiResponse.json();
-}
+import { fetchFromAPI } from "./lib/fetchFromAPI";
 
 export default async function Home() {
-  const data = await fetchPosts();
+  const data = await fetchFromAPI("posts");
   return (
     <>
       <Header></Header>

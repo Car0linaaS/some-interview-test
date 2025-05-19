@@ -4,6 +4,7 @@ import { Post } from "@/app/types/Post";
 import DateCard from "@/app/components/DateCard";
 import SanitizedHtml from "@/app/components/SanitizedHtml";
 import Image from "next/image";
+import { fetchFromAPI } from "@/app/lib/fetchFromAPI";
 
 interface PostPageProps {
   params: {
@@ -11,16 +12,8 @@ interface PostPageProps {
   };
 }
 
-// Try to reuse
-async function fetchPost(id: string) {
-  const apiResponse = await fetch(
-    `https://bergvik.se/wp-json/wp/v2/posts/${id}?_embed`
-  );
-  return await apiResponse.json();
-}
-
 export default async function PostPage({ params }: PostPageProps) {
-  const post: Post = await fetchPost(params.id);
+  const post = await fetchFromAPI<Post>(`posts/${params.id}`);
   console.log(post);
   return (
     <>
