@@ -1,4 +1,5 @@
 import PostList from "./components/PostList";
+import PostGrid from "./components/PostGrid";
 
 async function fetchPosts() {
   const apiResponse = await fetch(
@@ -12,7 +13,7 @@ export default async function Home() {
   return (
     <>
       <div>
-        <PostList data={data}></PostList>
+        <PostGrid data={data}></PostGrid>
       </div>
     </>
   );
