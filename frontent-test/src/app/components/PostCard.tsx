@@ -1,5 +1,6 @@
 import CardTitle from "./CardTitle";
 import CardPicture from "./CardPicture";
+import CardExcerpt from "./CardExcerpt";
 import { Post } from "../types/Post";
 
 interface PostCardProps {
@@ -14,6 +15,7 @@ export default function PostCard({ post }: PostCardProps) {
         src={post._embedded["wp:featuredmedia"]["0"].source_url}
         alt={post.title.rendered}
       ></CardPicture>
+      <CardExcerpt excerpt={post.excerpt.rendered}></CardExcerpt>
     </div>
   );
 }
