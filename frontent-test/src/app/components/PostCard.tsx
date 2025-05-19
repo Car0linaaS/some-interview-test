@@ -1,6 +1,7 @@
 import CardTitle from "./CardTitle";
 import CardPicture from "./CardPicture";
 import CardExcerpt from "./CardExcerpt";
+import CardFooter from "./CardFooter";
 import { Post } from "../types/Post";
 
 interface PostCardProps {
@@ -16,6 +17,7 @@ export default function PostCard({ post }: PostCardProps) {
         alt={post.title.rendered}
       ></CardPicture>
       <CardExcerpt excerpt={post.excerpt.rendered}></CardExcerpt>
+      <CardFooter date={post.date} id={post.id}></CardFooter>
     </div>
   );
 }
