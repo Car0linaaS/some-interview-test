@@ -8,12 +8,7 @@ interface CardBtnProps {
 
 export default function CardButton({ text, id }: CardBtnProps) {
   return (
-    // <a
-    //   href={`../post/${id}`}
-    //   className="bg-[#1974f9] hover:bg-[#19aff9] text-white font-bold py-2 px-4 rounded-xl cursor-pointer hover:scale-105"
-    // >
-    //     </a>
-
+    // Link is to prevent full page reload
     <Link
       href={`../post/${id}`}
       className="bg-[#1974f9] hover:bg-[#19aff9] text-white font-bold py-2 px-4 rounded-xl cursor-pointer hover:scale-105"

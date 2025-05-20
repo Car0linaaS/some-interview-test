@@ -1,7 +1,16 @@
 
-export async function fetchFromAPI<T = any>(endpoint: string): Promise<T> {
-    const baseUrl = "https://bergvik.se/wp-json/wp/v2";
+// Generic fetch function
+export async function fetchFromAPI<T = any>(baseUrl: string, endpoint: string): Promise<T> {
+  try {
     const apiResponse = await fetch(`${baseUrl}/${endpoint}?_embed`);
-  
-    return apiResponse.json();
+
+    if (!apiResponse.ok) {
+      throw new Error(`Error fetching data: ${apiResponse.status}`);
+    }
+
+    return await apiResponse.json();
+  } catch (error) {
+    console.error("Network or fetch error:", error);
+    throw error;
+  }
 }

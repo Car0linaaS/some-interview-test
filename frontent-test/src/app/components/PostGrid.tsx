@@ -5,6 +5,7 @@ interface PostGridProps {
   data: Post[];
 }
 
+// Grid for all card components
 export default function PostGrid({ data }: PostGridProps) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
